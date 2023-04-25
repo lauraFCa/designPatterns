@@ -1,6 +1,6 @@
 # Padrões de Projeto
 
-## CRIACAO
+## CRIAÇÃO
 
 ### Singleton
 
@@ -41,7 +41,7 @@ Endereco = new Endereco {
    }
 }
 
-## ESTRUTURAL
+## ESTRUTURAIS
 
 ### Decorator
 Adicionar funcionalidades a aplicação sem mexer no que já existe.
