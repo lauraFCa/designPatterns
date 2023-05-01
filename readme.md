@@ -76,4 +76,39 @@ Ex: Chamo classe celsius passando valor em Fahreiheit
 Ex: Aplicação funciona em dolar mas permite entrada em real  
 Ex: Converter Nota em Conceito
 
+> Utiliza IFs e ELSEs  
+Cenários de teste:
+- Ida correta
+- Ida errada
+- Volta correta
+- Volta errada
 
+### Façade (Fachada)
+
+Esconder implementações tendo apenas um ponto de acesso.  
+O ponto principal com as agregações necessárias é o Facede.
+
+Ex: 
+- Aluno - pode formar?
+- AlunoFacade - verifica se ele pode formar, tem a agregação com todas as outras classes
+- Outras classes (biblioteca, financeiro, etc) - verificam se o aluno tem pendencia na area delas
+
+Liberação de um paciente do hospital:
+- Pendencias na lanchonete?
+- Passou na farmácia?
+- Exames enviados ao paciente?
+- Médico deu a liberação?
+- Enfermeiro disponivel para liberação?
+
+### Padrão Proxy
+
+Objetivo: econimizar recurso.  
+Carrega objetos sob demanada.
+
+- Proxy Dados: Dados carregam a medida que são necessários.
+- Proxy de Segurança: dados não carregam por falta de acesso
+
+### Padrão Flyweight
+
+Objetivo: econimizar recurso.  
+Não utilizar objetos iguais repetidos.
