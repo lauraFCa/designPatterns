@@ -13,6 +13,7 @@ public static Portao getInstance() {
 ### Factory Method
 
 > Reflexão computacional
+
 Cria interface com os metodos
 Cria classes que puxam da interface
 Cria factory que recebe "a interface" e retorna a classe específica correta
