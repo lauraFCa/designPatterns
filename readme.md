@@ -126,3 +126,71 @@ Carrega objetos sob demanada.
 
 Objetivo: econimizar recurso.  
 Não utilizar objetos iguais repetidos.
+
+## COMPORTAMENTAIS
+
+### Chain of Responsabilities
+
+Cadeia de Responsabilidades - permite que você passe pedidos por uma corrente de handlers. Ao receber um pedido, cada handler decide se processa o pedido ou o passa adiante para o próximo handler na corrente.  
+Implementa-se checagens sequenciais (ex - autenticação de 3 fatores).
+
+**Caso de uso**: Acesso a um banco de dados  
+Endereço de IP liberado > usuário autenticado > usuário com permissão > base de dados possui a tabela buscada
+
+### Iteration
+
+Padrão que permite percorrer elementos de uma coleção sem expor as representações dele (lista, pilha, árvore, etc.)  
+O foco é fazer a travessia dos elementos de uma estrutura de dados complexas sequencialmente, tais como uma árvore.  
+
+![Iterator pattern](iterator.png)
+img from [Refactoring Guru](https://refactoring.guru/pt-br/design-patterns/iterator)
+
+**Caso de uso**: Sistema de gerenciamento de uma oficina mecanica  
+Possui objeto complexo - ClienteX  
+´´´
+ClienteX {
+    DadosCliente {
+        nome, 
+        cpf
+        telefone,
+        email
+    },
+    Veiculo {
+        marca,
+        modelo,
+        ano,
+        Revisoes [
+            {
+                data,
+                preco,
+                kilometragem,
+                itens-revisados = Dict<string, bool> {
+                    "motor": false,
+                    "oleo": true,
+                    "balanceamento": true,
+                }
+            }
+        ]
+    }
+}
+´´´
+
+### Command (ou Action)
+
+Objetivo: separar as funções do sistema em classes diferentes;  
+Uma classe gerencia as tarefas, cada tarefa está em uma classe única, que implementa uma interface genérica *Tarefa*.  
+A classe que gerencia não tem tarefas, apenas recebe uma injetada.
+
+```Livro: Anti-Padrões```
+
+**Caso de uso:** Entrega de uma compra seguindo o fluxo  
+PedidoConfirmado > PacoteSeparado > PacoteEnviado > PacoteEmTransporte > PacoteEntregue
+
+DepartamentoGestao = Marca o estado do pedido
+
+### Observer
+
+Útil quando um objeto precisa ser atualizado quando outro muda.  
+Exemplo principal - notificações!
+
+**Caso de uso**: 
