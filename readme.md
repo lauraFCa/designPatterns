@@ -184,13 +184,13 @@ _Not done_
 Padrão que permite percorrer elementos de uma coleção sem expor as representações dele (lista, pilha, árvore, etc.)  
 O foco é fazer a travessia dos elementos de uma estrutura de dados complexas sequencialmente, tais como uma árvore.  
 
-![Iterator pattern](iterator.png)
+![Iterator pattern](https://refactoring.guru/images/patterns/diagrams/iterator/problem2.png?id=f9c1a746c787320291c85fdc2a314192)  
 img from [Refactoring Guru](https://refactoring.guru/pt-br/design-patterns/iterator)
 
 **Caso de uso**: Sistema de gerenciamento de uma concessionaria.    
 Possui objeto complexo - Cliente contém multiplos veiculos e cada veiculo pode ter várias revisões.
 
-´´´
+```
 ClienteX {
     DadosCliente {
         nome, 
@@ -216,7 +216,7 @@ ClienteX {
         ]
     }
 }
-´´´
+```
 
 ### Command (ou Action)
 
