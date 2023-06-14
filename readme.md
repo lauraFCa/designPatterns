@@ -193,4 +193,36 @@ DepartamentoGestao = Marca o estado do pedido
 Útil quando um objeto precisa ser atualizado quando outro muda.  
 Exemplo principal - notificações!
 
-**Caso de uso**: 
+**Caso de uso**: Medido de usina hidroeletrica alerta centra quando pressao em uma seção da usina está muito acima do esperado;
+
+### Mediator
+
+**Caso de uso:** Cliente solicita algo da empresa.  
+Pode ser uma Dúvida Técnica ou Dúvida Financeira;
+Pode ser uma Melhoria Técnica ou Melhoria Financeira;
+
+### Memento
+
+Base: Padrão State  
+
+### Interpreter
+
+No padrao Interpreter é somente para fazer mudança na classe Aluno, e classe Escola, do nosso "jeito" 
+O restante das classes não é para fazer alterações
+
+### Template Method
+
+Cria super-classe com tudo, e o que for específico passa pra sub-classes.  
+Criar literalmente um template de algo;
+
+**Caso de uso:** Executar requisições via API  
+Template é de GET e POST. O conteúdo do request e a URL muda de acordo com o uso da sub-classe.
+
+### Visitor
+
+**Caso de uso:** Setor de gestão de empresa que lida com tipos diferentes de entidades: Boleto, Ordem de servço, Contrato 
+
+### Strategy
+
+**Caso de uso:** Execução de querys no banco.  
+Recebo string conteudo da query - Table, WHERE, VALUE
