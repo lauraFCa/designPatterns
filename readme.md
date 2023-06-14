@@ -26,12 +26,16 @@ Cria factory que recebe "a interface" e retorna a classe específica correta
 
 Recomendado para construção de objetos complexos;  
 També recomendado quando se trata da construção de representações múltiplas de uma mesma classe  
-[class missed]
 
+**Caso de uso**: Uma empresa de construção que oferta diversos tipos de construão, como Prédios, Casas, Hotéis, Apartamentos, entre outros.
+Uma construção envolve muitos parametros como tipo da construção, se possui piscina ou não, se será feito o projeto elétrico, hidráulio, ou não - dentre outras variáveis.
 
 ### Abstract Factory
 
 Criação de famílias de objetos relacionados ou dependentes por meio de uma única interface e sem que a classe concreta seja especificada.
+
+**Caso de uso:** Criação de um filme que possui vários parametros, sendo dois deles a Produção e o Roteiro.  
+Foram criadas interfaces e métodos para a criação/definição do roteiro (roteiristas responsáveis, quantidade de páginas, tempo do filme, etc) e da produção (membros, empresas terceirizadas, locação de espaços, etc).
 
 ### Prototype
 
@@ -49,6 +53,8 @@ Endereco = new Endereco {
 }
 ```
 
+**Caso de uso**: Categorização de canetas, que possuem parametros e podem ser de diferentes marcas (que possuem código e lote).
+
 ## ESTRUTURAIS
 
 ### Decorator
@@ -58,6 +64,11 @@ Adicionar funcionalidades a aplicação sem mexer no que já existe.
 
 Quando concateno mais de uma classe vai se tornando uma lista encadeada  
 Curso curso = new Estagio(new Tcc(new CursoGraduacao('engenharia'))))
+
+**Caso de Uso**: Empresa com diferentes planos de ceular, e pacotes adicionais.  
+Pode ter planos Controle, Pré-pago, etc.  
+Esses planos podem, ou não, ter adicionais como chamada internacional, whatsapp ilimitado e internet (5g).
+
 
 ### Bridge
 
@@ -75,12 +86,22 @@ meia estudante | meia idoso | meia infantil | inteira
 **tipo2** = envento  
 show de musica | teatro | stand-up | cinema | museu
 
+**Caso de Uso**: Tipos diferentes de ingresso para tipos diferentes de eventos.  
+*Eventos*: Musica (festivais/shows), Teatro, Cinema, etc.  
+*Ingressos*: Meia entrada, Inteira, Premium, etc.
+
+
 ### Composite
 
 Quando preciso comport um objeto para gerar um objeto.  
 
 Corpo humano -> Sistema gastrointestinal, Sistema neuronal, Sistema mecanico  
 Cada sistema é composto por orgãos
+
+**Caso de Uso**: Solicitação de Exames de partes / sistemas / órgãos do corpo humano.  
+*Sistema*: Respiratório, Digestivo, Circulatório, etc.  
+*Órgãos*: Apendice, Pulmão, Cérebro, etc.
+
 
 ### Adaptor
 
@@ -96,6 +117,10 @@ Cenários de teste:
 - Ida errada
 - Volta correta
 - Volta errada
+
+**Caso de Uso**: Sistema de processamento de imagens que precisa delas em RGB mas pode receber em Hexadecimal.  
+Trabalha apenas as cores: Vermelho, Azul, Amarelo, Branco, Preto e Verde
+
 
 ### Façade (Fachada)
 
@@ -114,6 +139,13 @@ Liberação de um paciente do hospital:
 - Médico deu a liberação?
 - Enfermeiro disponivel para liberação?
 
+**Caso de Uso**: Liberação de um paciente do hospital:
+- Exames enviados ao paciente?
+- Médico deu a liberação (alta)?
+- Acompanhante presente para liberação?
+- Enfermeiro disponivel para liberação?
+
+
 ### Padrão Proxy
 
 Objetivo: econimizar recurso.  
@@ -122,10 +154,18 @@ Carrega objetos sob demanada.
 - Proxy Dados: Dados carregam a medida que são necessários.
 - Proxy de Segurança: dados não carregam por falta de acesso
 
+**Caso de Uso**: Acesso aos dados de pacientes em um hospital.
+
+
 ### Padrão Flyweight
 
 Objetivo: econimizar recurso.  
 Não utilizar objetos iguais repetidos.
+
+**Caso de Uso**: edu.Venda de remédios em uam farmácia, que geralmente vende sempre o mesmo tipo de medicamento.  
+Ex: Analgésico, Fitoterápico, Anti-inflamatorio
+
+> Neste caso, cada venda se refere apenas a um remédio.
 
 ## COMPORTAMENTAIS
 
@@ -137,6 +177,8 @@ Implementa-se checagens sequenciais (ex - autenticação de 3 fatores).
 **Caso de uso**: Acesso a um banco de dados  
 Endereço de IP liberado > usuário autenticado > usuário com permissão > base de dados possui a tabela buscada
 
+_Not done_
+
 ### Iteration
 
 Padrão que permite percorrer elementos de uma coleção sem expor as representações dele (lista, pilha, árvore, etc.)  
@@ -145,8 +187,9 @@ O foco é fazer a travessia dos elementos de uma estrutura de dados complexas se
 ![Iterator pattern](iterator.png)
 img from [Refactoring Guru](https://refactoring.guru/pt-br/design-patterns/iterator)
 
-**Caso de uso**: Sistema de gerenciamento de uma oficina mecanica  
-Possui objeto complexo - ClienteX  
+**Caso de uso**: Sistema de gerenciamento de uma concessionaria.    
+Possui objeto complexo - Cliente contém multiplos veiculos e cada veiculo pode ter várias revisões.
+
 ´´´
 ClienteX {
     DadosCliente {
@@ -184,31 +227,50 @@ A classe que gerencia não tem tarefas, apenas recebe uma injetada.
 ```Livro: Anti-Padrões```
 
 **Caso de uso:** Entrega de uma compra seguindo o fluxo  
-PedidoConfirmado > PacoteSeparado > PacoteEnviado > PacoteEmTransporte > PacoteEntregue
+````
+Enviado, ✔
+EmTransporte, ✔
+Recebido, ✔ 
+Cancelado, 
+Devolvido 
+````
 
-DepartamentoGestao = Marca o estado do pedido
+Administradora = Marca o estado do pacote (pedido)
+
 
 ### Observer
 
 Útil quando um objeto precisa ser atualizado quando outro muda.  
 Exemplo principal - notificações!
 
-**Caso de uso**: Medido de usina hidroeletrica alerta centra quando pressao em uma seção da usina está muito acima do esperado;
+**Caso de uso**: Medidor de usina hidroeletrica alerta central quando pressao em uma seção da usina está muito acima do esperado;
+
+Central = conecta ao medidor
+Medidor = emite alerta para a central
+
 
 ### Mediator
 
 **Caso de uso:** Cliente solicita algo da empresa.  
-Pode ser uma Dúvida Técnica ou Dúvida Financeira;
-Pode ser uma Melhoria Técnica ou Melhoria Financeira;
+Solicitação de Ajuda, Solicitação de Desconto, etc...
+Departamento = Financeiro
 
 ### Memento
 
 Base: Padrão State  
 
+**Caso de Uso**: Estados de um pedido de compra online.  
+Pedido Confirmado > Pedido enviado > Pedido entregue  
+Podendo haver também: Pedido Cancelado, Pedido Extraviado, Pedido devolvido;
+
+
 ### Interpreter
 
 No padrao Interpreter é somente para fazer mudança na classe Aluno, e classe Escola, do nosso "jeito" 
 O restante das classes não é para fazer alterações
+
+**Caso de uso:** Desconto de um produto em uma loja.  
+Poderia também ser aplicada alguma taxa em um produto, soma de múltiplos produtos, etc.
 
 ### Template Method
 
